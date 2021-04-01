@@ -847,24 +847,499 @@
 
 
 
-class Studetn(object):
+# class Student(object):
+#
+#     # __init__是一个特殊方法用于在创建对象时进行初始化操作
+#     # 通过这个方法我们可以为学生对象绑定name和age两个属性
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def study(self, course_name):
+#         print('%s正在学习%s.' % (self.name, course_name))
+#
+#     # PEP 8要求标识符的名字用全小写多个单词用下划线连接
+#     # 但是部分程序员和公司更倾向于使用驼峰命名法(驼峰标识)，驼峰标识，如myname写为MyNam此类的
+#     def watch_movie(self):
+#         if self.age < 18:
+#             print('%s只能观看《熊出没》.' % self.name)
+#         else:
+#             print('%s正在观看岛国爱情大电影.' % self.name)
+#
+#
+#
+#
+# def main():
+#     # 创建学生对象并指定姓名和年龄
+#     stu1 = Student('骆昊', 38)
+#     # 给对象发study消息
+#     stu1.study('Python程序设计')
+#     # 给对象发watch_av消息
+#     stu1.watch_movie()
+#     stu2 = Student('王大锤', 15)
+#     stu2.study('思想品德')
+#     stu2.watch_movie()
+#
+#
+# if __name__ == '__main__':
+#     main()
 
-    # __init__是一个特殊方法用于在创建对象时进行初始化操作
-    # 通过这个方法我们可以为学生对象绑定name和age两个属性
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
 
-    def study(self, course_name):
-        print('%s正在学习%s.' % (self.name, course_name))
 
-    # PEP 8要求标识符的名字用全小写多个单词用下划线连接
-    # 但是部分程序员和公司更倾向于使用驼峰命名法(驼峰标识)
-    def watch_movie(self):
-        if self.age < 18:
-            print('%s只能观看《熊出没》.' % self.name)
-        else:
-            print('%s正在观看岛国爱情大电影.' % self.name)
+
+# #P1 定义一个类描述数字时钟
+#
+# from time import sleep
+#
+# class Clock(object):
+#
+#     """数字时钟"""
+#
+#     def __init__(self,hour = 0,minute = 0,second = 0):
+#         self._hour = hour
+#         self._minute = minute
+#         self._second = second
+#
+#     def run(self):
+#
+#         """走字"""
+#
+#         self._second += 1
+#         if self._second == 60:
+#             self._second = 0
+#             self._minute += 1
+#             if self._minute == 60:
+#                 self._minute = 0
+#                 self._hour += 1
+#                 if self._hour == 24:
+#                     self._hour = 0
+#     def show(self):
+#
+#         """显示时间"""
+#
+#         return '%02d:%02d:%02d' % \
+#                (self._hour, self._minute, self._second)
+#
+#
+# def main():
+#     clock = Clock(21, 51, 10)
+#     while True:
+#         print(clock.show())
+#         sleep(1)
+#         clock.run()
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+# #P2  定义一个类描述平面上的点并提供移动点何计算到另一个点的距离
+#
+# from math import sqrt
+#
+# class Point(object):
+#     def __init__(self,x=0, y=0):
+#
+#         """初始化方法"""
+#         self.x = x
+#         self.y = y
+#
+#     def move_to(self,x,y):
+#         """移动到指定位置"""
+#         self.x = x
+#         self.y = y
+#
+#     def move_by(self,dx,dy):
+#         self.x += dx
+#         self.y += dy
+#
+#     def distance_to(self, other):
+#         """计算与另一个点的距离"""
+#         dx = self.x - other.x
+#         dy = self.y - other.y
+#         return sqrt(dx ** 2 + dy ** 2)
+#
+#     def __str__(self):
+#         return '(%s, %s)' % (str(self.x), str(self.y))
+#
+# def main():
+#     p1 = Point(3,5)
+#     p2 = Point()
+#     print(p1)
+#     print(p2)
+#     p2.move_by(-1, 2)
+#     print(p2)
+#     print(p1.distance_to(p2))
+#
+# if __name__ == '__main__':
+#     main()
+
+
+
+# #使用tkinter做一个简单的GUI应用
+#
+# import tkinter
+# import tkinter.messagebox
+#
+#
+# def main():
+#     flag = True
+#
+#     #修改标签上的文字
+#     def change_label_text():
+#         nonlocal flag
+#         flag = not flag
+#         color, msg = ('red', 'Hello,world!')\
+#             if flag else ('blue', 'Goodbye,world!')
+#         label.config(text = msg,fg = color)
+#
+#     #确认退出
+#     def confirm_to_quit():
+#         if tkinter.messagebox.askokcancel('温馨提示','确定要退出码？'):
+#             top.quit()
+#
+#     #创建顶层窗口
+#     top = tkinter.Tk()
+#     #设置窗口大小
+#     top.geometry('240x160')
+#     #设置窗口标题
+#     top.title('小游戏')
+#     #创建标签对象并添加到顶层窗口
+#     laebl = tkinter.Label(top,text = 'Hello,World!', font = 'Arial -32',fg = 'red')
+#     laebl.pack(expand = 1)
+#     # 创建一个装按钮的容器
+#     panel = tkinter.Frame(top)
+#     # 创建按钮对象 指定添加到哪个容器中 通过command参数绑定事件回调函数
+#     button1 = tkinter.Button(panel, text='修改', command=change_label_text)
+#     button1.pack(side='left')
+#     button2 = tkinter.Button(panel, text='退出', command=confirm_to_quit)
+#     button2.pack(side='right')
+#     panel.pack(side='bottom')
+#     # 开启主事件循环
+#     tkinter.mainloop()
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+
+# #P 使用pygame制作游戏窗口
+#
+# import pygame
+#
+# def main():
+#     #初始化导入pygame模块
+#     pygame.init()
+#     #初始化用于显示的窗口并设置窗口尺寸
+#     screen = pygame.display.set_mode((800, 600))
+#     #设置当前窗口的标题
+#     pygame.display.set_caption('大球吃小球')
+#     running = True
+#     #开启一个事件循环处理发生的事件
+#     while running:
+#         #聪消息队列中获取事件并对事件进行处理
+#         for event in pygame.event.get():
+#             if event.type == pygame.QUIT:
+#                 running = False
+#
+# if __name__ == '__main__':
+#     main()
+
+
+
+# import pygame
+#
+# def main():
+#     #初始化导入的pygame中的模块
+#     pygame.init()
+#     #初始化用于显示的窗口并设置窗口的尺寸
+#     screen = pygame.display.set_mode((800, 600))
+#     #设置当前窗口的标题
+#     pygame.display.set_caption('大球吃小球')
+#     #定义变量来表示小球在屏幕上的位置
+#     x,y = 50,50
+#     running = True
+#     #开启一个事件循环处理发生的事件
+#     while running:
+#         #从消息队列中获取时间并对时间进行处理
+#         for event in pygame.event.get():
+#             if event.type == pygame.QUIT:
+#                 running = False
+#
+#         #设置窗口的背景颜色（颜色是由红绿蓝三原色构成的元组）
+#         screen.fill((242, 242, 242))
+#     # 通过指定的文件名加载图像
+#     #ball_image = pygame.image.load('./res/ball.png')
+#         #绘制一个圆（参数分别是：屏幕，颜色，圆心位置，半径，0表示填充圆）
+#         pygame.draw.circle(screen,(255, 0, 0), (x, y),30,0)
+#      #刷新当前窗口（渲染窗口将绘制的图像呈现出来）
+#         pygame.display.flip()
+#         #没个50毫秒就改变小球的位置再刷新窗口
+#         pygame.time.delay(50)
+#         x, y = x + 5, y + 5
+#         #running = True
+#         #开启一个事件循环处理发生的事件
+#         #while running:
+#         #从消息队列中获取时间并对时间进行处理
+#         #for event in pygame.event.get():
+#             #if event.type == pygame.QUIT:
+#                 #running = False
+#
+# if __name__ == '__main__':
+#     main()
+
+
+
+# from enum import Enum, unique
+# from math import sqrt
+# from random import randint
+#
+# import pygame
+#
+#
+# @unique
+# class Color(Enum):
+#     """颜色"""
+#
+#     RED = (255, 0, 0)
+#     GREEN = (0, 255, 0)
+#     BLUE = (0, 0, 255)
+#     BLACK = (0, 0, 0)
+#     WHITE = (255, 255, 255)
+#     GRAY = (242, 242, 242)
+#
+#     @staticmethod
+#     def random_color():
+#         """获得随机颜色"""
+#         r = randint(0, 255)
+#         g = randint(0, 255)
+#         b = randint(0, 255)
+#         return (r, g, b)
+#
+#
+# class Ball(object):
+#     """球"""
+#
+#     def __init__(self, x, y, radius, sx, sy, color=Color.RED):
+#         """初始化方法"""
+#         self.x = x
+#         self.y = y
+#         self.radius = radius
+#         self.sx = sx
+#         self.sy = sy
+#         self.color = color
+#         self.alive = True
+#
+#     def move(self, screen):
+#         """移动"""
+#         self.x += self.sx
+#         self.y += self.sy
+#         if self.x - self.radius <= 0 or \
+#                 self.x + self.radius >= screen.get_width():
+#             self.sx = -self.sx
+#         if self.y - self.radius <= 0 or \
+#                 self.y + self.radius >= screen.get_height():
+#             self.sy = -self.sy
+#
+#     def eat(self, other):
+#         """吃其他球"""
+#         if self.alive and other.alive and self != other:
+#             dx, dy = self.x - other.x, self.y - other.y
+#             distance = sqrt(dx ** 2 + dy ** 2)
+#             if distance < self.radius + other.radius \
+#                     and self.radius > other.radius:
+#                 other.alive = False
+#                 self.radius = self.radius + int(other.radius * 0.146)
+#
+#     def draw(self, screen):
+#         """在窗口上绘制球"""
+#         pygame.draw.circle(screen, self.color,
+#                            (self.x, self.y), self.radius, 0)
+#
+#
+#
+# def main():
+#     # 定义用来装所有球的容器
+#     balls = []
+#     # 初始化导入的pygame中的模块
+#     pygame.init()
+#     # 初始化用于显示的窗口并设置窗口尺寸
+#     screen = pygame.display.set_mode((800, 600))
+#     # 设置当前窗口的标题
+#     pygame.display.set_caption('大球吃小球')
+#     running = True
+#     # 开启一个事件循环处理发生的事件
+#     while running:
+#         # 从消息队列中获取事件并对事件进行处理
+#         for event in pygame.event.get():
+#             if event.type == pygame.QUIT:
+#                 running = False
+#             # 处理鼠标事件的代码
+#             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+#                 # 获得点击鼠标的位置
+#                 x, y = event.pos
+#                 radius = randint(10, 100)
+#                 sx, sy = randint(-10, 10), randint(-10, 10)
+#                 color = Color.random_color()
+#                 # 在点击鼠标的位置创建一个球(大小、速度和颜色随机)
+#                 ball = Ball(x, y, radius, sx, sy, color)
+#                 # 将球添加到列表容器中
+#                 balls.append(ball)
+#         screen.fill((255, 255, 255))
+#         # 取出容器中的球 如果没被吃掉就绘制 被吃掉了就移除
+#         for ball in balls:
+#             if ball.alive:
+#                 ball.draw(screen)
+#             else:
+#                 balls.remove(ball)
+#         pygame.display.flip()
+#         # 每隔50毫秒就改变球的位置再刷新窗口
+#         pygame.time.delay(50)
+#         for ball in balls:
+#             ball.move(screen)
+#             # 检查球有没有吃到其他的球
+#             for other in balls:
+#                 ball.eat(other)
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+# #将1-9999之间的所有素数保存在三个txt文件中，1-99，100-999，1000-9999
+#
+#
+# from math import sqrt
+#
+# def is_prime(n):
+#     """判断素数的函数"""
+#     assert n > 0
+#     for factor in range(2, int(sqrt(n)) + 1):
+#         if n % factor == 0:
+#             return False
+#     return True if n != 1 else False
+#
+#
+# def main():
+#     filenames = ('a.txt', 'b.txt', 'c.txt')
+#     fs_list = []
+#     try:
+#         for filename in filenames:
+#             fs_list.append(open(filename, 'w', encoding = 'utf-8'))
+#         for number in range(1,10000):
+#             if is_prime(number):
+#                 if number < 100:
+#                     fs_list[0].write(str(number) + '\n')
+#                 elif number < 1000:
+#                     fs_list[1].write(str(number) + '\n')
+#                 else:
+#                     fs_list[2].write(str(number) + '\n')
+#     except IOError as ex:
+#         print(ex)
+#         print('写文件时发生错误!')
+#     finally:
+#         for fs in fs_list:
+#             fs.close()
+#         print('操作完成！')
+#
+# if __name__ == '__main__':
+#     main()
+
+
+
+#将字典或者列表以JSON格式保存到文件中
+
+import json
+
+def main():
+    mydict = {
+        'name': '文豪',
+        'age' : 27,
+        'phone' : 18539068687,
+        'friends' : ['王大锤', '白元芳'],
+        'cars' : [
+            {'brand': 'Audi', 'max_speed' : 280},
+            {'brand': 'Benz', 'max_speed' : 320},
+        ]
+    }
+    try:
+        with open('data.json', 'w',encoding = 'utf-8') as fs:
+            json.dump(mydict,fs)
+    except IOError as e:
+        print(e)
+    print('保存数据完成!')
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
