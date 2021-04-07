@@ -1601,3 +1601,279 @@
 # area = math.pi * radius * radius
 # print('周长：%.2f' % perimeter)
 # print('面积：%.2f' % area)
+
+# #用for循环实现1-100求和
+#
+# sum = 0
+# for a in range(1,101):
+#     sum += a
+# print(sum)
+
+#print(sum([i for i in range(1,101)]))
+#print(sum(range(1,101)))
+#用while实现求和
+# sum = 0
+# num = 1
+# while num <= 100:
+#     sum += num
+#     num += 1
+# print(sum)
+
+# #输入两个正整数计算最大公约数和最小公倍数
+#
+# x = int(input("请输入整数："))
+# y = int(input("请输入整数："))
+# if x > y:
+#     (x,y) = (y,x)
+# for factor in range(x, 0, -1):
+#     if x % factor == 0 and y % factor == 0:
+#         print("%d和%d的最大公约数为：%d" %(x,y,factor))
+#         print("%d和%d的最小公倍数为：%d"%(x,y,x*y//factor))  #这一步牛逼
+#         break
+
+
+# 打印各种三角图案
+
+# row = int(input("请输入行数："))
+# for i in range(row):
+#     for _ in range(i + 1):
+#         print('*',end='')
+#     print()
+#
+# for i in range(row):
+#     for j in range(row):
+#         if j < row - i - 1:
+#             print(' ',end='')
+#         else:
+#             print('*',end='')
+#     print()
+
+# for i in range(row):
+#     for _ in range(row - i -1):
+#         print(' ',end='')
+#     for _ in range(2 * i + 1):5
+#          print('*',end='')
+#     print()
+
+
+# #斐波那契数列
+#
+# a = 0
+# b = 1
+# for _ in range(20):
+#     a, b = b, a + b
+#     print(a, end=' ')
+
+# # 回文数
+#
+# num = int(input('请输入一个正整数：'))
+# temp = num
+# num2 = 0
+# while temp > 0:
+#     num2 *= 10
+#     num2 += temp % 10
+#     temp //= 10
+# if num == num2:
+#     print('%d是回文数' % num)
+# else:
+#     print('%d不是回文数' % num)
+
+
+# # 完美数（1-10000）
+#
+# import math
+#
+# for num in range(1,10000):
+#     result = 0
+#     for factor in range(1, int(math.sqrt(num)) + 1):
+#         if num % factor == 0:
+#             result += factor
+#             if factor > 1 and num // factor != factor:
+#                 result += num // factor
+#     if result == num:
+#         print(num)
+
+
+
+# #定义函数，求最大公约数和最小公倍数
+#
+# def gcd(x, y):
+#     if x > y:
+#         (x, y) = (y, x)
+#     for factor in range(x, 1, -1):
+#         if x % factor == 0 and y % factor == 0:
+#             return factor
+#     return 1
+#
+# def lcm(x, y):
+#     return x * y // gcd(x, y)
+#
+# print(gcd(15, 27))
+# print(lcm(15, 27))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
