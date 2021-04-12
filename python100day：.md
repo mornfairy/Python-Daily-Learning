@@ -1,4 +1,4 @@
-# python100_day1：
+# Python100_day1：
 
 1、03分支结构
 
@@ -8,7 +8,7 @@
 
 1.3、在之前我们提到的Python之禅中有这么一句话“Flat is better than nested.”，之所以提倡代码“扁平化”是因为嵌套结构的嵌套层次多了之后会严重的影响代码的可读性，所以能使用扁平化的结构时就不要使用嵌套。
 
-# python100_day2:
+# Python100_day2:
 
 1、05 构造程序逻辑
 
@@ -16,7 +16,7 @@
 
 1.2、水仙花数的例子体会下，两组程序的差别，代码的简洁程度。
 
-# python100_day3:
+# Python100_day3:
 
 06函数的模块和使用
 
@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
 14、Python为字符串类型提供了非常丰富的运算符，我们可以使用`+`运算符来实现字符串的拼接，可以使用`*`运算符来重复一个字符串的内容，可以使用`in`和`not in`来判断一个字符串是否包含另外一个字符串（成员运算），我们也可以用`[]`和`[:]`运算符从字符串取出某个字符或某些字符（切片运算）.
 
-# python100_day4:
+# Python100_day4:
 
 1、字符串的格式化输出：
 
@@ -93,7 +93,7 @@ Python 3.6以后，格式化字符串还有更为简洁的书写方式，就是�
 
 7、字典是另一种可变容器模型，Python中的字典跟我们生活中使用的字典是一样一样的，它可以存储任意类型对象，与列表、集合不同的是，字典的每个元素都是由一个键和一个值组成的“键值对”，键和值通过冒号分开。下面的代码演示了如何定义和使用字典。
 
-# python100_day5:
+# Python100_day5:
 
 1、"把一组数据结构和处理它们的方法组成对象（object），把相同行为的对象归纳为类（class），通过类的封装（encapsulation）隐藏内部细节，通过继承（inheritance）实现类的特化（specialization）和泛化（generalization），通过多态（polymorphism）实现基于对象类型的动态分派。"
 
@@ -103,7 +103,7 @@ Python 3.6以后，格式化字符串还有更为简洁的书写方式，就是�
 
 4、在实际开发中，我们并不建议将属性设置为私有的，因为这会导致子类无法访问（后面会讲到）。面向对象有三大支柱：封装、继承和多态。
 
-# python100_day6:
+# Python100_day6:
 
 10.图形用户界面和游戏开发
 
@@ -118,7 +118,7 @@ Python 3.6以后，格式化字符串还有更为简洁的书写方式，就是�
 
 ​            5. 进入主事件循环(main loop)。
 
-# python100_day7:
+# Python100_day7:
 
 1、在Python中，我们可以将那些在运行时可能会出现状况的代码放在`try`代码块中，在`try`代码块的后面可以跟上一个或多个`except`来捕获可能出现的异常状况。除了使用文件对象的`read`方法读取文件之外，还可以使用`for-in`循环逐行读取或者用`readlines`方法将文件按行读取到一个列表容器中
 
@@ -171,7 +171,7 @@ Python 3.6以后，格式化字符串还有更为简洁的书写方式，就是�
 
 6、“序列化（serialization）在计算机科学的数据处理中，是指将数据结构或对象状态转换为可以存储或传输的形式，这样在需要的时候能够恢复到原先的状态，而且通过序列化的数据重新获取字节时，可以利用这些字节来产生原始对象的副本（拷贝）。与这个过程相反的动作，即从一系列字节中提取数据结构的操作，就是反序列化（deserialization）”。
 
-# python100_day8:
+# Python100_day8:
 
 1、是否采用多任务的第二个考虑是任务的类型，可以把任务分为计算密集型和I/O密集型。计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如对视频进行编码解码或者格式转换等等，这种任务全靠CPU的运算能力，虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低。计算密集型任务由于主要消耗CPU资源，这类任务用Python这样的脚本语言去执行效率通常很低，最能胜任这类任务的是C语言，我们之前提到了Python中有嵌入C/C++代码的机制。
 
@@ -195,7 +195,7 @@ TCP全称传输控制协议，它是基于IP提供的寻址和路由服务而建
 
 6、requests是一个基于HTTP协议来使用网络的第三库，其[官方网站](http://cn.python-requests.org/zh_CN/latest/)有这样的一句介绍它的话：“Requests是唯一的一个**非转基因**的Python HTTP库，人类可以安全享用。”简单的说，使用requests库可以非常方便的使用HTTP，避免安全缺陷、冗余代码以及“重复发明轮子”（行业黑话，通常用在软件工程领域表示重新创造一个已有的或是早已被优化過的基本方法）。前面的文章中我们已经使用过这个库，下面我们还是通过requests来实现一个访问网络数据接口并从中获取美女图片下载链接然后下载美女图片到本地的例子程序，程序中使用了[天行数据](https://www.tianapi.com/)提供的网络API。
 
-# python100_day9:
+# Python100_day9:
 
 1、单斜杠：除法求商，不做下取整
 
@@ -221,4 +221,194 @@ TCP全称传输控制协议，它是基于IP提供的寻址和路由服务而建
 >>> 
 ```
 
-2、
+2、k最近邻分类
+
+k-means聚类算法，通过给定k值，选用每种距离度量方式，在训练集中找出与之相对应距离的样本，然后基于所找出的样本进行预测。对于分类任务，可以将出现次数最多的样本的类别作为预测标签的结果。对于回归任务，可以将k个最近的值的平均值作为预测的结果，也可以根据距离的远近进行加权平均，距离近的样本权重大，距离大的权重小。
+
+3、k最近邻算法中的k值选取尤为关键，
+
+算法优缺点
+
+优点：
+
+1. 简单有效
+2. 重新训练代价低
+3. 适合类域交叉样本
+4. 适合大样本分类
+
+缺点：
+
+1. 惰性学习
+2. 输出的可解释性不强
+3. 不擅长处理不均衡样本
+4. 计算量比较大
+
+# Python100_day10（python语言进阶）:
+
+## 1、机器学习的分类
+
+#### 1.1、监督学习：从给定的训练数据集中学习出一个函数，当给定新的数据时可以根据函数预测结果，训练集通常由人工标注。
+
+#### 1.2、无监督学习：与监督学习对应，但是训练集无认为标注。
+
+#### 1.3、强化学习：通过观察来执行什么样的操作会获取最好的回报，每个动作都会对环境有所影响，学习对象根据观察到的周围环境的变化做出判断。
+
+#### 1.4、半监督学习：介于监督学习和无监督学习之间的一类学习方法。
+
+#### 1.5、深度学习：利用深层神经网络模型抽象数据表示特征的一种方法。
+
+## 2、Scikit-learn
+
+### 2.1、Scikit-learn的基本功能
+
+#分类：异常检测，图像识别。KNN，SVM
+
+#聚类：图像分割，群体划分。K-Means，谱聚类
+
+#回归：价格预测，趋势预测。线性回归，SVR
+
+#降维：可视化。PCA，NMF
+
+
+
+
+
+
+
+
+
+3、python生成式（推导式）用法：
+
+\3. 字符串s1 ='ABC'，字符串 s2 = '123'，要求：生成序列 A1 A2 A3 B1 B2 B3 C1 C2 C3
+
+\## 初学者思维：
+
+![img](https://img-blog.csdnimg.cn/20181216190230878.png)
+
+\## python老手思维：
+
+![img](https://img-blog.csdnimg.cn/20181216190310692.png)
+
+运行结果是相同的：
+
+![img](https://img-blog.csdnimg.cn/20181216190344535.png)
+
+4、7.  腾讯2018校招在线编程题：
+
+![img](https://img-blog.csdnimg.cn/20181216192802569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjI4MTA2,size_16,color_FFFFFF,t_70)
+
+第一步：从终端接收一个输入的数：
+
+num1 = int(input('输入3<num<1000的整数：'))
+第二步：找出接收的数的范围以内的质数：
+
+def zhishu(f):
+    if f == 1:
+        return False
+    for j in range(2, f):
+        res = f % j
+        if res == 0:
+            return False
+    else:
+        return True
+
+list1 = [i for i in range(2, num1+1) if zhishu(i)]
+第三步： 求出符合题目条件的质数对的数量：
+
+       方法一：
+
+N = 0
+for n in list1:
+    for k in list1:
+        if n + k == num1 and n <= k:   ### 写到这时，马同学思维是解决重复，我想着怎样让不重复
+            N += 1
+print(N)
+      方法二：
+
+N = 0
+for item in list1:       ### 老师的思维
+    if 10-item in list1 and item <= 10-item:
+        N += 1
+print(N)
+
+![preview](https://pic4.zhimg.com/v2-770ed4822c9cd941c3783fb6a9f93a7f_r.jpg)
+
+![preview](https://pic2.zhimg.com/v2-ac6f3c6d30d1b4100107fd2fd21057ad_r.jpg)
+
+![preview](https://pic3.zhimg.com/v2-807312e421bedaacc4fd68db19d6c906_r.jpg)
+
+![preview](https://pic4.zhimg.com/v2-8e9fbbc6c446c76afa6a3578ed5e76ef_r.jpg)
+
+![preview](https://pic1.zhimg.com/v2-1fa0c82cb2f1e2b386c82247c4dfeea8_r.jpg)
+
+![preview](https://pic4.zhimg.com/v2-09bd6d065b1aed3b67838b9d29b00f23_r.jpg)
+
+![preview](https://pic4.zhimg.com/v2-314f0915ab4ef18eec5aee5bb2502003_r.jpg)
+
+![preview](https://pic1.zhimg.com/v2-e35e58027d941d5a8766859b56563c64_r.jpg)
+
+![preview](https://pic2.zhimg.com/v2-a3fdcafa4182725e323ea8458e533ab9_r.jpg)
+
+![preview](https://pic4.zhimg.com/v2-b3d6a9ba43fb48422bed499b6acd304f_r.jpg)
+
+![preview](https://pic2.zhimg.com/v2-4dd3828ab2bbee7c8a8602ab69a07a51_r.jpg)
+
+enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
+
+### 语法
+
+以下是 enumerate() 方法的语法:
+
+```
+enumerate(sequence, [start=0])
+```
+
+### 参数
+
+- sequence -- 一个序列、迭代器或其他支持迭代对象。
+- start -- 下标起始位置。
+
+### 返回值
+
+返回 enumerate(枚举) 对象。
+
+------
+
+## 实例
+
+以下展示了使用 enumerate() 方法的实例：
+
+![image-20210411204424417](C:\Users\WH\AppData\Roaming\Typora\typora-user-images\image-20210411204424417.png)
+
+![image-20210411204437039](C:\Users\WH\AppData\Roaming\Typora\typora-user-images\image-20210411204437039.png)
+
+# Python100_day11:
+
+### 1、code sheep讲的github的高效检索
+
+> 搜索名字里面含有关键词的就直接用：==in:name python== 就可以检索出名称中包含python的仓库，
+
+> 要搜索star比较高的，可以用==stats:>3000==，即表示stars数大于3000才能被检索出来
+
+> 然后检索readme的话，当然就用= =in:readme= =进行检索
+
+> 可以使用描述和语言限定搜索：==In:description 爬虫 language：Python==
+
+> 搜索最近更新的就用：==pushed：>2021-01-01==
+
+2、`collections`模块
+
+常用的工具类：
+
+- `namedtuple`：命令元组，它是一个类工厂，接受类型的名称和属性列表来创建一个类。
+- `deque`：双端队列，是列表的替代实现。Python中的列表底层是基于数组来实现的，而deque底层是双向链表，因此当你需要在头尾添加和删除元素是，deque会表现出更好的性能，渐近时间复杂度为$O(1)$。
+- `Counter`：`dict`的子类，键是元素，值是元素的计数，它的`most_common()`方法可以帮助我们获取出现频率最高的元素。`Counter`和`dict`的继承关系我认为是值得商榷的，按照CARP原则，`Counter`跟`dict`的关系应该设计为关联关系更为合理。
+- `OrderedDict`：`dict`的子类，它记录了键值对插入的顺序，看起来既有字典的行为，也有链表的行为。
+- `defaultdict`：类似于字典类型，但是可以通过默认的工厂函数来获得键对应的默认值，相比字典中的`setdefault()`方法，这种做法更加高效。
+
+3、
+
+
+
+
+

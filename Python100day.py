@@ -1713,30 +1713,94 @@
 
 
 
+# #排序算法（选择、冒泡和归并）
+#
+# """简单选择排序"""
+# def select_sort(items, comp=lambda x, y: x < y):
+#     items = items[:]
+#     for i in range(len(items) - 1):
+#         min_index = i
+#         for j in range(i + 1, len(items)):
+#             if comp(items[j], items[min_index]):
+#                 min_index = j
+#         items[i], items[min_index] = items[min_index], items[i]
+#     return items
+
+# #python生成式（推导式）用法，用于生成列表、集合和字典
+#
+# prices = {'AAPL': 191.88,
+#           'GOOG': 1186.96,
+#           'IBM': 149.24,
+#           'ORCL': 48.44,
+#           'ACN': 166.89,
+#           'FB': 208.09,
+#           'SYMC': 21.29}
+#
+# prices2 = {key: value for key,value in prices.items() if value > 100}
+# print(prices2)
 
 
+# #列表的嵌套
+#
+# names = ['关羽', '张飞', '赵云', '马超', '黄忠']
+# courses = ['语文', '数学', '英语']
+# scores = [[None] * len(courses) for _ in range(len(names))]
+#          #有几门课程就用几个空列表[None]做占位符,所以直接乘以courses列表的长度
+# for row, name in enumerate(names):   #enumerate首先列出第一个元素的下标0和值关羽
+#     # enumerate是枚举，列出元素的下标和对应的值
+#     for col, course in enumerate(courses):#enumerate列出courses中的第一个值的下标和值
+#         scores[row][col] = float(input(f'请输入{name}的{course}成绩: '))
+#         print(scores)
 
+#
 
+# heapq模块（堆排序）
+#
+# """从列表中找出最大的或最小的N个元素
+# 堆结构（大根堆/小根堆）"""
+#
+#
+# import heapq
+#
+# list1 = [34, 25, 12, 99, 87, 63, 58, 78, 88, 92]
+# list2 = [
+#     {'name': 'IBM', 'shares': 100, 'price': 91.1},
+#     {'name': 'AAPL', 'shares': 50, 'price': 543.22},
+#     {'name': 'FB', 'shares': 200, 'price': 21.09},
+#     {'name': 'HPQ', 'shares': 35, 'price': 31.75},
+#     {'name': 'YHOO', 'shares': 45, 'price': 16.35},
+#     {'name': 'ACME', 'shares': 75, 'price': 115.65}
+# ]
+# print(heapq.nlargest(3, list1))    #最大元素的输出顺序默认为由大到小
+# print(heapq.nsmallest(3, list1))   #最小元素的输出顺序默认为由小到大
+# print(heapq.nlargest(2, list2, key=lambda x: x['price']))  #根据关键词price和shares找出最大的
+# print(heapq.nlargest(2, list2, key=lambda x: x['shares']))
 
+# """迭代工具模块"""
+#
+# import itertools
+#
+# #产生ABCD的全排列
+# itertools.permutations('ABCD')
+# #产生ABCDE的五选三组合
+# itertools.combinations('ABCDE', 3)
+# #产生ABCD和123的笛卡尔积
+# itertools.product('ABCD', '123')
+# #产生ABC的无限循环序列
+# itertools.cycle(('A', 'B', 'C'))
 
+#找出序列中出现次数最多的元素
 
+from collections import Counter
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+words = [
+    'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+    'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
+    'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
+    'look', 'into', 'my', 'eyes', "you're", 'under'
+]
+counter = Counter(words)
+print(counter.most_common(3))
 
 
 
