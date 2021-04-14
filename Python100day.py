@@ -1789,23 +1789,82 @@
 # #产生ABC的无限循环序列
 # itertools.cycle(('A', 'B', 'C'))
 
-#找出序列中出现次数最多的元素
-
-from collections import Counter
-
-words = [
-    'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
-    'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
-    'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
-    'look', 'into', 'my', 'eyes', "you're", 'under'
-]
-counter = Counter(words)
-print(counter.most_common(3))
-
-
+# #找出序列中出现次数最多的元素
+#
+# from collections import Counter
+#
+# words = [
+#     'look', 'into', 'my', 'eyes', 'look', 'into', 'my', 'eyes',
+#     'the', 'eyes', 'the', 'eyes', 'the', 'eyes', 'not', 'around',
+#     'the', 'eyes', "don't", 'look', 'around', 'the', 'eyes',
+#     'look', 'into', 'my', 'eyes', "you're", 'under'
+# ]
+# counter = Counter(words)
+# print(counter.most_common(3))
 
 
+# # 简单选择排序结构体
+#
+# def select_sort(items, comp=lambda x, y: x < y):
+#     """简单选择排序"""
+#     items = items[:]
+#     for i in range(len(items) - 1):
+#         min_index = i
+#         for j in range(i + 1, len(items)):
+#             mind_index = j
+#         items[i], items[min_index] = items[min_index], items[i]
+#     return items
 
+#简单选择排序实例
+
+import sys
+A = [64, 25, 12, 11, 22]
+
+for i in range(len(A)):
+    min_index = i
+    for j in range(i + 1, len(A)):
+        #if A[min_index] > A[j]:
+            min_index = j
+    A[i], A[min_index] = A[min_index], A[i]
+print("排序后的数组为：")
+for i in range(len(A)):
+    print("%d" %A[i])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# #冒泡排序
+#
+# """冒泡排序"""
+#
+# def bubble_sort(items, comp=lambda x, y: x > y):
+#     items = items[:]
+#     for i in range(len(items) - 1):
+#         swapped = False
+#         for j in range(len(items) - 1 - i):
+#             if comp(items[j],items[j + i]):
+#                 items[j], items[j + 1] = items[j + 1],items[j]
+#                 swapped = True
+#         if not swapped:
+#             break
+#     return items
 
 
 

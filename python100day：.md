@@ -406,9 +406,57 @@ enumerate(sequence, [start=0])
 - `OrderedDict`：`dict`的子类，它记录了键值对插入的顺序，看起来既有字典的行为，也有链表的行为。
 - `defaultdict`：类似于字典类型，但是可以通过默认的工厂函数来获得键对应的默认值，相比字典中的`setdefault()`方法，这种做法更加高效。
 
-3、
+# Python100_day12:
 
+1、数据结构和算法：
 
+- 算法：解决问题的方法和步骤
+- 评价算法的好坏：渐近时间复杂度和渐近空间复杂度。
+- 渐近时间复杂度的大O标记：
+  - [![img](https://camo.githubusercontent.com/44ba5f6ba25b0fae0eaec4f1aeccac8ce1124791ef98ded00466e336dff8cf4d/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286329)](https://camo.githubusercontent.com/44ba5f6ba25b0fae0eaec4f1aeccac8ce1124791ef98ded00466e336dff8cf4d/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286329) - 常量时间复杂度 - 布隆过滤器 / 哈希存储
+  - [![img](https://camo.githubusercontent.com/c84069cd18fc61eac8f4f1b899ba6ec878a4c21af64c04d8853fbb150d01a788/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286c6f675f326e29)](https://camo.githubusercontent.com/c84069cd18fc61eac8f4f1b899ba6ec878a4c21af64c04d8853fbb150d01a788/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286c6f675f326e29) - 对数时间复杂度 - 折半查找（二分查找）
+  - [![img](https://camo.githubusercontent.com/9ad5f8dcd5bdae8b66205c7472fed2e90d2f569698b6ae5034993c434a4bd11a/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e29)](https://camo.githubusercontent.com/9ad5f8dcd5bdae8b66205c7472fed2e90d2f569698b6ae5034993c434a4bd11a/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e29) - 线性时间复杂度 - 顺序查找 / 计数排序
+  - [![img](https://camo.githubusercontent.com/bf71fc4b5a6a518fad4d54001f7c7bee82dc1d97d7abbcc4c1d2277b93d0f67f/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e2a6c6f675f326e29)](https://camo.githubusercontent.com/bf71fc4b5a6a518fad4d54001f7c7bee82dc1d97d7abbcc4c1d2277b93d0f67f/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e2a6c6f675f326e29) - 对数线性时间复杂度 - 高级排序算法（归并排序、快速排序）
+  - [![img](https://camo.githubusercontent.com/f3038618c31ec54aa23dcf811d5ed03dcd29eccb0fc4770bd396ae8ed52be161/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e5e3229)](https://camo.githubusercontent.com/f3038618c31ec54aa23dcf811d5ed03dcd29eccb0fc4770bd396ae8ed52be161/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e5e3229) - 平方时间复杂度 - 简单排序算法（选择排序、插入排序、冒泡排序）
+  - [![img](https://camo.githubusercontent.com/baf1669c4a134e97391d6fc955a13f4ee6939fda151dc759d06d97e0f65b0415/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e5e3329)](https://camo.githubusercontent.com/baf1669c4a134e97391d6fc955a13f4ee6939fda151dc759d06d97e0f65b0415/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e5e3329) - 立方时间复杂度 - Floyd算法 / 矩阵乘法运算
+  - [![img](https://camo.githubusercontent.com/22b2ff251b344e42a2cdfad014b1b5788dd9b1533e85d99033a6c9616bc7c27b/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f28325e6e29)](https://camo.githubusercontent.com/22b2ff251b344e42a2cdfad014b1b5788dd9b1533e85d99033a6c9616bc7c27b/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f28325e6e29) - 几何级数时间复杂度 - 汉诺塔
+  - [![img](https://camo.githubusercontent.com/213fa8ee7fceaccee605072b5db903789bdbc4bd46b0b5a5ede19a50e2c2e270/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e2129)](https://camo.githubusercontent.com/213fa8ee7fceaccee605072b5db903789bdbc4bd46b0b5a5ede19a50e2c2e270/687474703a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f4f286e2129) - 阶乘时间复杂度 - 旅行经销商问题 - NPC
 
+2、排序详解：
 
+- 交换排序，选择排序，插入排序，都属于基本排序
+- 交换排序：冒泡排序，快速排序
+- 插入排序：希尔排序
+- 堆排序：完全二叉树，平方二叉树
 
+3、简单选择排序：
+
+- 属于选择排序
+- 两两比较大小，找出极值（极大值或者极小值）被放置在固定的位置，这个固定的位置一般参考值某一端
+- 对比一般分为升序和降序两种
+  + 降序
+    + n个数从左至右，索引从0开始至n-1，两两依次比较，记录大值的索引，此轮将所有的书对比完毕将极大值索引和0索引的数值交换
+    + 第二轮从1开始，找最大值，并将最大值和索引1位置交换
+    + 其他值以此类推  
+
+- 简单选择排序
+
+  - 属于选择排序
+  - 两两比较大小，找出极值（极大值或极小值）被放置在固定的位置，这个固定位置一般指的是某一端。
+  - 结果分为升序和降序排列
+
+- 降序
+
+  - n个数从左至右，索引从0开始到n-1，两两依次比较，记录大值索引，此轮所有数比较完毕，将极大值和索引0数交换。
+  - 如果极大值就是索引0，不交换。
+  - 第二轮，从1开始比较，找到最大值，将它和索引1位置交换。
+  - 如果它就在索引1位置则不交换。
+  - 依次类推，每次左边就会固定下一个大数
+
+  ![img](http://yuntu88.oss-cn-beijing.aliyuncs.com/fromlocal/gnuzsx@126.com/20200421/mFSHiDGwpj.png)
+
+- 简单选择排序需要数据一轮轮比较，并在每一轮当中发现极值。
+- 没有办法知道当前轮是否已经达到排序要求，但是可以知道极值是否在目标索引位置上。
+- 遍历次数1,...n-1之和n(n-1)/2
+- 时间复杂度O(n2)
+- 减少了交换次数，提高了效率，性能略好于冒泡法
