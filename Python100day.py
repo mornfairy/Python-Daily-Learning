@@ -1811,192 +1811,123 @@
 #     for i in range(len(items) - 1):
 #         min_index = i
 #         for j in range(i + 1, len(items)):
-#             mind_index = j
+#             mid_index = j
 #         items[i], items[min_index] = items[min_index], items[i]
 #     return items
 
-#简单选择排序实例
-
-import sys
-A = [64, 25, 12, 11, 22]
-
-for i in range(len(A)):
-    min_index = i
-    for j in range(i + 1, len(A)):
-        #if A[min_index] > A[j]:
-            min_index = j
-    A[i], A[min_index] = A[min_index], A[i]
-print("排序后的数组为：")
-for i in range(len(A)):
-    print("%d" %A[i])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# #冒泡排序
+# #简单选择排序实例
 #
-# """冒泡排序"""
+# import sys
+# A = [64, 25, 12, 11, 22]
+#
+# for i in range(len(A)):
+#     min_index = i
+#     for j in range(i + 1, len(A)):
+#         if A[min_index] > A[j]:
+#             min_index = j
+#     A[i], A[min_index] = A[min_index], A[i]
+# print("排序后的数组为：")
+# for i in range(len(A)):
+#     print("%d" % A[i])
+
+
+# #冒泡排序结构体
 #
 # def bubble_sort(items, comp=lambda x, y: x > y):
 #     items = items[:]
 #     for i in range(len(items) - 1):
 #         swapped = False
 #         for j in range(len(items) - 1 - i):
-#             if comp(items[j],items[j + i]):
-#                 items[j], items[j + 1] = items[j + 1],items[j]
+#             if comp(items[j], items[j+1]):
+#                 items[j], items[j + 1] = items[j + 1], items[j]
 #                 swapped = True
 #         if not swapped:
 #             break
 #     return items
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# #冒泡排序实例
+#
+# nums = []
+#
+# print('冒泡排序(降序排序)')
+# while True:
+#     print('请输入你想排列的数字个数：')
+#     try:
+#         x = int(input())  #此处将输入的数字个数赋值给x
+#         for i in range(x):
+#             a = int(input('请输入第' + str(i+1) + '个整数：'))  #此处记得要将i转为字符串类型
+#             nums.append(a)   #使用append方法将a附加到nums列表中
+#     except ValueError:
+#         print('输入错误，请重新输入：')
+#
+#     for j in range(len(nums) -1):
+#         for k in range(len(nums) - j - 1):
+#             if nums[k] < nums[k + 1]:
+#                 nums[k], nums[k + 1] = nums[k + 1],nums[k]
+#     print(nums)
+#
+#     jud = input('您是否想要继续？(Y/N)')
+#     while jud != 'Y' and jud != 'N':
+#         jud = input('输入错误，请重新输入：')
+#     if jud == 'Y':
+#         nums.clear()
+#         continue
+#     else:
+#         print('再见！')
+#         break
+
+
+# #搅拌排序（冒泡排序的升级版）
+#
+#
+# def bubble_sort(items, comp=lambda x, y: x > y):
+#     items = items[:]
+#     for i in range(len(items) - 1):
+#         swapped = False
+#         for j in range(len(items) - 1 - i):
+#             if comp(items[j], items[j + 1]):
+#                 items[j], items[j + 1] = items[j + 1], items[j]
+#                 swapped = True
+#         if swapped:
+#             swapped = False
+#             for j in range(len(items) - 2 - i, i, -1):
+#                 if comp(items[j - 1], items[j]):
+#                     items[j], items[j - 1] = items[j - 1],items[j]
+#                     swapped = True
+#         if not swapped:
+#             break
+#     return items
+
+
+# #python搅拌排序(即双向冒泡排序)
+#
+# def bubble_sort(origin_items):
+#     comp = lambda x, y: x > y
+#     items = origin_items[:]
+#     for i in range(len(items) - 1):
+#         swapped = False
+#         for j in range(i, len(items) - 1 - i):
+#             if comp(items[j], items[j + 1]):
+#                 items[j], items[j + 1] = items[j + 1], items[j]
+#                 swapped = True
+#         if swapped:
+#             swapped = False
+#             for j in range(len(items) - 2 - i, i, -1):
+#                 if comp(items[j - 1], items[j]):
+#                     items[j], items[j - 1] = items[j - 1], items[j]
+#                     swapped = True
+#         if not swapped:
+#             break
+#     return items
+#
+#
+# def main():
+#     s = [1, 10, 2, 8, 5, 10, 11, 14, 15, 16]
+#     print(bubble_sort(s))
+#
+# if __name__ == '__main__':
+#     main()
 
 
 

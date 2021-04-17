@@ -390,7 +390,7 @@ enumerate(sequence, [start=0])
 
 > 要搜索star比较高的，可以用==stats:>3000==，即表示stars数大于3000才能被检索出来
 
-> 然后检索readme的话，当然就用= =in:readme= =进行检索
+> 然后检索readme的话，当然就用==in:readme==进行检索
 
 > 可以使用描述和语言限定搜索：==In:description 爬虫 language：Python==
 
@@ -463,7 +463,7 @@ enumerate(sequence, [start=0])
 
 - 遍历次数1,...n-1之和n(n-1)/2
 
-- 时间复杂度O(n2)
+- 时间复杂度O($$n^2$$)
 
 - 减少了交换次数，提高了效率，性能略好于冒泡法
 
@@ -481,3 +481,18 @@ enumerate(sequence, [start=0])
 - 示意图如下：
 
 ![img](https://www.runoob.com/wp-content/uploads/2019/03/bubbleSort.gif)
+
+3、lambda函数相关：
+
++ lambda的一般表现形式是关键字lambda后面跟上一个或者多个参数，之后是一个冒号，最后是一个表达式
++ 一般形式是：lambda *argument1，argument2，...，argumentN ：expression using arguments*
++ lambda是一个表达式，而不是语句
++ lambda的主体是一个单独的表达式，而不是一个代码块
+
+4、python双向冒泡排序：
+
+从名字就可以看出来，是双向的冒泡排序。
+冒泡排序，每次都是从左往右，交换相邻的元素，从而达到循环一边可以把最大的元素放在右边。
+而双向冒泡排序，在完成一次从左往右的冒泡排序后，再从右往左进行冒泡，从而把小的元素放在左边
+
+![img](https://img-blog.csdnimg.cn/20191203173746758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA2MzAzMQ==,size_16,color_FFFFFF,t_70)
