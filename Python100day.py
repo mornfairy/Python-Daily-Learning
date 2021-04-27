@@ -2017,9 +2017,9 @@
 # 名称	价格（美元）	重量（kg）
 # 电脑	200	        20
 # 收音机	20	        4
-# 钟	    175	        10
+# 钟	175	        10
 # 花瓶	50	        2
-# 书	    10	        1
+# 书	10	        1
 # 油画	90	        9
 # """
 # 贪婪法：在对问题求解时，总是做出在当前看来是最好的选择，不追求最优解，快速找到满意解。
@@ -2033,38 +2033,254 @@
 # 油画 90 9
 # """
 
+# class Thing(object):
+#     """物品"""
+#
+#     def __init__(self, name, price, weight):
+#         self.name = name
+#         self.price = price
+#         self.weight = weight
+#
+#     @property
+#     def value(self):
+#         """价格重量比"""
+#         return self.price / self.weight
+#
+#
+# def input_thing():
+#     """输入物品信息"""
+#     name_str, price_str, weight_str = input().split()
+#     return name_str, int(price_str), int(weight_str)
+#
+#
+# def main():
+#     """主函数"""
+#     max_weight, num_of_things = map(int, input().split())
+#     all_things = []
+#     for _ in range(num_of_things):
+#         all_things.append(Thing(*input_thing()))
+#     all_things.sort(key=lambda x: x.value, reverse=True)
+#     total_weight = 0
+#     total_price = 0
+#     for thing in all_things:
+#         if total_weight + thing.weight <= max_weight:
+#             print(f'小偷拿走了{thing.name}')
+#             total_weight += thing.weight
+#             total_price += thing.price
+#     print(f'总价值: {total_price}美元')
+#
+#
+# if __name__ == '__main__':
+#     main()
 
-class Thing(object):
-    """物品"""
 
-    def __init__(self, name, price, weight):
-        self.name = name
-        self.price = price
-        self.weight = weight
+# #  分治法例子：快速排序   没整明白
+#
+# """快速排序 - 选择枢轴元素进行划分，左边都比枢轴小右边都比枢轴大"""
+#
+# def quick_sort(items, comp=lambda x, y : x <= y):
+#     items = list(items)[:]
+#     quick_sort(items, 0, len(items) - 1, comp)
+#     return items
+#
+# def _quick_scort(items, start, end, comp):
+#     if start < end:
+#         pos = _partition(items, start, end, comp)
+#         _quick_scort(items, start, pos - 1, comp)
+#         _quick_scort(items, pos + 1, end, comp)
+#
+# def _partition(items, start, end, comp):
+#     pivot = items[end]
+#     i = start - 1
+#     for j in range(start, end):
+#         if comp(items[j], pivot):
+#             i += 1
+#             items[i], items[j] = items[j]. items[i]
+#     items[i + 1], items[end] = items[end], items[i + 1]
+#     return i + 1
 
-    def value(self):
-        """价格重量比"""
-        return self.price / slef.weight
-
-def main():
-    """主函数"""
-    max_weight, num_of_things = map(int, input(),split())
-    all_things = []
-    for _ in range(num_of_things):
-        all_things.append(Thing(*input_thing()))
-    all_things.sort(key=lambda x: x.value, reverse=True)
-    total_weight = 0
-    total_price = 0
-    for thing in all_things:
-        if total_weight + thing.weight <= max_weight:
-            print(f'小偷拿走了{thing.name}')
-            total_weight += thing.weight
-            total_price += thing.price
-    print(f'总价值: {total_price}美元')
-
-
-if __name__ == '__main__':
-    main()
+# # 小甲鱼python教程：类
+#
+# class Turtle:  #python中的类名约定以大写字母开头
+#     """关于类的一个简单例子"""
+#     # 属性
+#     color = 'green'
+#     weight = 10
+#     legs = 4
+#     shell = True
+#     mouth = '大嘴'
+#
+#     # 方法
+#     def climb(self):
+#         print("我正在很努力的往前爬.....")
+#
+#     def run(self):
+#         print("我正在飞快地向前爬......")
+#
+#     def bite(self):
+#         print("咬死你")
 
 
+# #  多态
+#
+# class A:
+#     def func(self):
+#         print("我是小A......")
+#
+# class B:
+#     def fun(self):
+#         print("我是小B.......")
+#
+# >>>a = A()
+# >>>b = B()
+# >>>a.fun()
+# 我是小A...
+# >>>b.fun()
+# 我是小B...
+
+
+
+# # 回溯法例子    不明白
+#
+# """回溯法又称试探法，按照选优条件向前搜索，当搜索到某一步，发现原先选择并不优或者达不到目标时，就退回一步重新选择，比较经典的问题包括骑士巡逻"""
+#
+# import sys
+# import time
+#
+# SIZE = 5
+# total = 0
+#
+# def print_board(board):
+#     for row in board:
+#         for col in row:
+#             print(str(col).center(4), end='')
+#         print()
+#
+# def patrol(board, row, col, step=1):
+#     if row >= 0 and row < SIZE and \
+#         col >= 0 and col < SIZE and \
+#         board[row][col] == 0:
+#         board[row][col] = step
+#         if step == SIZE * SIZE:
+#             global total
+#             total += 1
+#             print(f'第{total}种走法: ')
+#             print_board(board)
+#         patrol(board, row - 2, col - 1, step + 1)
+#         patrol(board, row - 1, col - 2, step + 1)
+#         patrol(board, row + 1, col - 2, step + 1)
+#         patrol(board, row + 2, col - 1, step + 1)
+#         patrol(board, row + 2, col + 1, step + 1)
+#         patrol(board, row + 1, col + 2, step + 1)
+#         patrol(board, row - 1, col + 2, step + 1)
+#         patrol(board, row - 2, col + 1, step + 1)
+#         board[row][col] = 0
+#
+#
+# def main():
+#     board = [[0] * SIZE for _ in range(SIZE)]
+#     patrol(board, SIZE - 1, SIZE - 1)
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+    # 动态规划例子：子列表元素之和的最大值。
+    #
+    # 说明：子列表指的是列表中索引（下标）连续的元素构成的列表；列表中的元素是int类型，可能包含正整数、0、负整数；程序输入列表中的元素，输出子列表元素求和的最大值，例如：
+    #
+    # 输入：1 - 2
+    # 3
+    # 5 - 3
+    # 2
+    #
+    # 输出：8
+    #
+    # 输入：0 - 2
+    # 3
+    # 5 - 1
+    # 2
+    #
+    # 输出：9
+
+    # 输入：-9 - 2 - 3 - 5 - 3
+    #
+    # 输出：-2
+
+
+# def main():
+#     items = list(map(int, input().split()))
+#     overall = partial = items[0]
+#     for i in range(1, len(items)):
+#         partial = max(items[i], partial + items[i])
+#         overall = max(partial, overall)
+#     print(overall)
+#
+# if __name__ == '__main__':
+#     main()
+
+# #  输出函数执行时间的装饰器
+#
+# """自定义装饰函数的装饰器"""
+#
+# def record_time(func):
+#     @wraps(func)
+#     def wrapper(*args, **kwargs):
+#         start = time()
+#         result = func(*args, **kwargs)
+#         print(f'{func.__name__}: {time() - start}秒')
+#         return result
+#     return wrapper
+
+
+
+# """输入M和N计算C（M，N）"""
+# #定义函数：def是定义函数的关键字，fact是函数名，num是参数（自变量）
+# def fac(num):
+#     """求阶乘"""
+#     result = 1
+#     for n in range(1, num + 1):
+#         result *= n
+#     return result
+#
+# m = int(input('m = '))
+# n = int(input('n = '))
+# #放需要计算阶乘的时候不用再重写代码而是直接调用函数fac
+# #调用函数的语法是在函数名后面跟上圆括号并传入参数
+#
+# print(fac(m) // fac(n) // fac(m - n))
+
+
+# from random import randint
+#
+# # 定义摇色子的函数，n表示色子的个数，默认值为2
+#
+# def roll_dice(n=2):
+#     """摇色子返回总的点数"""
+#     total = 0
+#     for _ in range(n):
+#         total += randint(1, 6)
+#     return total
+#
+# # 如果没有指定参数，那么n使用默认值2，表示摇两颗色子
+# print(roll_dice())
+# # 传入参数3，变量n被赋值为3，表示摇三颗色子获得点数
+# print(roll_dice(3))
+
+
+# def add(a=0, b=0, c=0):
+#     """三个数相加求和"""
+#     return a + b + c
+#
+#
+# # 调用add函数，没有传入参数，那么a、b、c都使用默认值0
+# print(add())         # 0
+# # 调用add函数，传入一个参数，那么该参数赋值给变量a, 变量b和c使用默认值0
+# print(add(1))        # 1
+# # 调用add函数，传入两个参数，1和2分别赋值给变量a和b，变量c使用默认值0
+# print(add(1, 2))     # 3
+# # 调用add函数，传入三个参数，分别赋值给a、b、c三个变量
+# print(add(1, 2, 3))  # 6
+# # 传递参数时可以不按照设定的顺序进行传递，但是要用“参数名=参数值”的形式
+# print(add(c=50, a=100, b=200))    # 350
 
