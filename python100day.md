@@ -690,3 +690,53 @@ class B:
 3、参数的默认值
 
 如果函数中没有`return`语句，那么函数默认返回代表空值的`None`。另外，在定义函数时，函数也可以没有自变量，但是函数名后面的圆括号是必须有的。
+
+# Python100_day17:
+
+1、今天其实很水，只是了解了一下python怎么按列读取数据就已经十点了。其实就是给txt文件中的两个列分别起了个名字，然后按照名字读取了。。。。。
+
+祭出今天写的使用python实现SROCC、PLCC、KROCC、RMSE的程序，完全原创：#  使用python实现SROCC，PLCC，KROCC的计算
+
+import pandas as pd
+import numpy as np
+
+#输入原始数据
+
+从txt文件中读入数据
+
+test1 = pd.read_table("data.txt")
+a = test1["ScoreA"]
+#print(a)
+test2 = pd.read_table("data.txt")
+b = test2["ScoreB"]
+#print(b)
+
+
+###### a = pd.Series([43.5014, 60.2509, 67.3574, 61.2848, 42.9953, 46.6351, 45.4776,
+######                 43.0422, 38.5426, 29.0167, 69.2392, 65.7653, 55.0551, 54.7645])
+###### b = pd.Series([0.7353, 0.7269, 0.7287, 0.7487, 0.7668, 0.8523, 0.8414, 0.8279,
+######                0.7145, 0.8279, 0.7240, 0.7223, 0.7211, 0.7198])
+
+计算SROCC
+
+SROCC = a.corr(b, method = 'spearman')
+print('SROCC = %.6f' %SROCC)
+
+计算KROCC
+
+KROCC = a.corr(b, method = 'kendall')
+print('KROCC = %.6f' %KROCC)
+
+计算PLCC
+
+PLCC = a.corr(b, method = 'pearson')
+print('PLCC = %.6f' %PLCC)
+
+计算均方根误差RMSE
+
+def rmse(predictions, targets):
+    return np.sqrt(((predictions - targets) ** 2).mean())
+
+rmse_val = rmse(np.array(a), np.array(b))
+print('RMSE = %.6f' %rmse_val)
+
