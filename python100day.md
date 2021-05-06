@@ -740,3 +740,52 @@ def rmse(predictions, targets):
 rmse_val = rmse(np.array(a), np.array(b))
 print('RMSE = %.6f' %rmse_val)
 
+# Python100_day18:
+
+1、python路径读取以及拼接等问题：
+
+import os
+
+Path1 = 'home'
+Path2 = 'develop'
+Path3 = 'code'
+
+Path10 = Path1 + Path2 + Path3
+Path20 = os.path.join(Path1,Path2,Path3)
+print ('Path10 = ',Path10)
+print ('Path20 = ',Path20)
+
+输出
+
+ 
+
+Path10 = homedevelopcode
+Path20 = home\develop\code
+    >>>print("1:",os.path.join('aaaa','/bbbb','ccccc.txt'))
+
+2、os.path.join()函数：连接两个或更多的路径名组件
+
+       1.如果各组件名首字母不包含’/’，则函数会自动加上
+
+　　　　2.第一个以”/”开头的参数开始拼接，之前的参数全部丢弃,当有多个时，从最后一个开始
+
+　　　　3.如果最后一个组件为空，则生成的路径以一个’/’分隔符结尾
+
+print("2:",os.path.join('/aaaa','/bbbb','/ccccc.txt')) #不良写法习惯
+
+     >>>2: /ccccc.txt
+
+print("22:",os.path.join('/aaaa/','bbbb/','ccccc.txt')) #通常可以这样写22: aaaa/bbb/ccccc.txt
+
+
+3、path = 'I:\SCVD_frames\yuv_frames'
+fileList = os.listdir(path)
+for i in fileList:
+    #print(i)
+#print(fileList)
+    Path1 = 'I:\SCVD_frames\yuv_frames'
+    file_path = os.path.join(Path1, i)  #os.path.join()的用法
+    #print(file_path)
+    img_list = os.listdir(file_path)    #获取路径之后打开路径的方法os.listdir()
+    img_list.sort(key = lambda x:int(x.split('.')[0]))   #此步骤略牛逼，可以把后缀去掉直接按照前面的数字顺序进行排序
+    print(img_list)
