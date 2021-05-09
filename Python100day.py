@@ -2288,21 +2288,21 @@
 
 
 
-#  使用python实现SROCC，PLCC，KROCC的计算
-
-import pandas as pd
-import numpy as np
-
-#输入原始数据
-
-# # 从txt文件中读入数据
-
-test1 = pd.read_table("data.txt")
-a = test1["ScoreA"]
-#print(a)
-test2 = pd.read_table("data.txt")
-b = test2["ScoreB"]
-#print(b)
+# #  使用python实现SROCC，PLCC，KROCC的计算
+#
+# import pandas as pd
+# import numpy as np
+#
+# #输入原始数据
+#
+# # # 从txt文件中读入数据
+#
+# test1 = pd.read_table("data.txt")
+# a = test1["ScoreA"]
+# #print(a)
+# test2 = pd.read_table("data.txt")
+# b = test2["ScoreB"]
+# #print(b)
 
 
 # a = pd.Series([43.5014, 60.2509, 67.3574, 61.2848, 42.9953, 46.6351, 45.4776,
@@ -2310,23 +2310,119 @@ b = test2["ScoreB"]
 # b = pd.Series([0.7353, 0.7269, 0.7287, 0.7487, 0.7668, 0.8523, 0.8414, 0.8279,
 #                0.7145, 0.8279, 0.7240, 0.7223, 0.7211, 0.7198])
 
-# 计算SROCC
+# # 计算SROCC
+#
+# SROCC = a.corr(b, method = 'spearman')
+# print('SROCC = %.6f' %SROCC)
+#
+# # 计算KROCC
+# KROCC = a.corr(b, method = 'kendall')
+# print('KROCC = %.6f' %KROCC)
+#
+# # 计算PLCC
+# PLCC = a.corr(b, method = 'pearson')
+# print('PLCC = %.6f' %PLCC)
+#
+# # 计算均方根误差RMSE
+#
+# def rmse(predictions, targets):
+#     return np.sqrt(((predictions - targets) ** 2).mean())
+#
+# rmse_val = rmse(np.array(a), np.array(b))
+# print('RMSE = %.6f' %rmse_val)
 
-SROCC = a.corr(b, method = 'spearman')
-print('SROCC = %.6f' %SROCC)
 
-# 计算KROCC
-KROCC = a.corr(b, method = 'kendall')
-print('KROCC = %.6f' %KROCC)
+# # class A(object):
+# class A:
+#     def __init__(self):
+#         print("__init__")
+#         super(A, self).__init__()
+#
+#     def __new__(cls):
+#         print("__new__")
+#         return super(A, cls).__new__(cls)
+#
+#     def __call__(self):
+#         print('__call__')
+#
+# A()
 
-# 计算PLCC
-PLCC = a.corr(b, method = 'pearson')
-print('PLCC = %.6f' %PLCC)
 
-# 计算均方根误差RMSE
+# """输入M和N计算C(M,N)"""
+#
+# # 定义函数：def是定义函数的关键字，fac是函数名，num是参数（自变量）
+# def fac(num):
+#     """求阶乘"""
+#     result = 1
+#     for n in range(1, num + 1):
+#         result *= n
+#     #返回num的阶乘（因变量）
+#     return result
+#
+# m = int(input('m = '))
+# n = int(input('n = '))
+# # 当需要计算阶乘的时候，直接调用函数fac即可
+# # 调用函数的语法是在函数名后面跟上圆括号并传入参数
+# print(fac(m) // fac(n) // fac(m - n))
+# print(fac(m))
+# print(fac(n))
+# print(fac(m - n))
 
-def rmse(predictions, targets):
-    return np.sqrt(((predictions - targets) ** 2).mean())
 
-rmse_val = rmse(np.array(a), np.array(b))
-print('RMSE = %.6f' %rmse_val)
+# """参数的默认值"""
+#
+# from random import randint
+#
+# # 定义摇色子的函数，n表示色子的个数，默认值为2
+#
+# def roll_dice(n = 2):
+#     """摇色子返回总的点数"""
+#     total = 0
+#     for _ in range(n):
+#         total += randint(1, 6)
+#     return total
+# # 如果没有指定参数，那么n使用默认值2，表示摇两个色子
+# print(roll_dice())
+# # 传入参数3，变量n被赋值为3，表示摇三颗色子获得点数
+# print(roll_dice(3))
+
+
+# """可变参数"""
+#
+# # 用星号表达式来表示args可以接受0个或任意多个参数
+# def add(*args):
+#     total = 0
+#     # 可变参数可以放在for循环中去除每个参数的值
+#     for val in args:
+#         total += val
+#     return total
+#
+# # 在调用add函数时可以传入0个或者任意多个参数
+# print(add())
+# print(add(1))
+# print(add(1, 2))
+# print(add(1, 2, 3))
+
+
+# 设计一个生成指定长度验证码的函数
+
+# # 验证码由数字和英文大小写字母构成
+#
+# import random
+#
+# ALL_CHARS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+#
+# def generate_code(code_len = 4):
+#     """生成指定长度的验证码
+#     :param code_len:验证码的长度（默认4个字符）
+#     :return: 有大小写英文字母和数字构成的随机验证码字符串
+#     """
+#     code = ''
+#     for _ in range(code_len):
+#         # 产生0到字符串长度减1单位的随机数作为索引
+#         index = random.randrange(0, len(ALL_CHARS))
+#         # 利用索引运算从字符串中取出字符进行拼接
+#         code += ALL_CHARS[index]
+#     return code
+
+    

@@ -789,3 +789,66 @@ for i in fileList:
     img_list = os.listdir(file_path)    #获取路径之后打开路径的方法os.listdir()
     img_list.sort(key = lambda x:int(x.split('.')[0]))   #此步骤略牛逼，可以把后缀去掉直接按照前面的数字顺序进行排序
     print(img_list)
+
+# Python100_day19:
+
+1、python中os.listdir()的用法：os.listdir() 方法用于返回指定的文件夹包含的文件或文件夹的名字的列表。它不包括 **.** 和 **..** 即使它在文件夹中。
+
+2、**listdir()**方法语法格式如下：
+
+```
+os.listdir(path)
+```
+
+### 参数
+
+- **path** -- 需要列出的目录路径
+
+### 返回值
+
+返回指定路径下的文件和文件夹列表。
+
+3、若要编写的类是另一个线程类的特殊版本，可以使用继承。一个类继承另一个类时，它将自动获得另一个类的所有属性和方法，原有的类称为符类，新的类成为子类。创建子类实例时，python首先需要完成的任务是给父类的所有属性赋值，因此要通过子类方法`__init__`方法
+
+子类方法：`__init__`方法负责对象的初始化，系统执行该方法前，其实该对象已经存在了，要不然初始化什么东西呢？
+
+# Python100_day20:
+
+1、argparse是一个Python模块：命令行选项、参数和子命令解析器。[`argparse`](https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse) 模块可以让人轻松编写用户友好的命令行接口。程序定义它需要的参数，然后 [`argparse`](https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse) 将弄清如何从 [`sys.argv`](https://docs.python.org/zh-cn/3/library/sys.html#sys.argv) 解析出那些参数。 [`argparse`](https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse) 模块还会自动生成帮助和使用手册，并在用户给程序传入无效参数时报出错误信息。
+
+使用流程：
+
+1.创建解析器：parser = argparse.ArgumentParser(description='Process some integers.')
+
+使用 [`argparse`](https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse) 的第一步是创建一个 [`ArgumentParser`](https://docs.python.org/zh-cn/3/library/argparse.html#argparse.ArgumentParser) 对象。[`ArgumentParser`](https://docs.python.org/zh-cn/3/library/argparse.html#argparse.ArgumentParser) 对象包含将命令行解析成 Python 数据类型所需的全部信息。
+
+2.添加参数：parser.add_argument('integers', metavar='N', type=int, nargs='+', help='an integer for the accumulator')
+
+给一个 [`ArgumentParser`](https://docs.python.org/zh-cn/3/library/argparse.html#argparse.ArgumentParser) 添加程序参数信息是通过调用 [`add_argument()`](https://docs.python.org/zh-cn/3/library/argparse.html#argparse.ArgumentParser.add_argument) 方法完成的。
+
+3.解析参数：>>> parser.parse_args(['--sum', '7', '-1', '42'])
+Namespace(accumulate=<built-in function sum>, integers=[7, -1, 42])
+
+[`ArgumentParser`](https://docs.python.org/zh-cn/3/library/argparse.html#argparse.ArgumentParser) 通过 [`parse_args()`](https://docs.python.org/zh-cn/3/library/argparse.html#argparse.ArgumentParser.parse_args) 方法解析参数。
+
+add_argument() 方法：
+
+ArgumentParser.add_argument(name or flags...[, action][, nargs][, const][, default][, type][, choices][, required][, help][, metavar][, dest])
+
+name or flags - 一个命名或者一个选项字符串的列表，例如 foo 或 -f, --foo。
+action - 当参数在命令行中出现时使用的动作基本类型。
+nargs - 命令行参数应当消耗的数目。
+const - 被一些 action 和 nargs 选择所需求的常数。
+default - 当参数未在命令行中出现时使用的值。
+type - 命令行参数应当被转换成的类型。
+choices - 可用的参数的容器。
+required - 此命令行选项是否可省略 （仅选项可用）。
+help - 一个此选项作用的简单描述。
+metavar - 在使用方法消息中使用的参数值示例。
+dest - 被添加到 parse_args() 所返回对象上的属性名。
+
+4、Python中的函数跟这个结构是一致的，每个函数都有自己的名字、自变量和因变量。我们通常把Python中函数的自变量称为函数的参数，而因变量称为函数的返回值。在函数名后面的圆括号中可以放置传递给函数的参数，就是我们刚才说到的函数的自变量，而函数执行完成后我们会通过`return`关键字来返回函数的执行结果，就是我们刚才说的函数的因变量。如果函数中没有`return`语句，那么函数默认返回代表空值的`None`。另外，在定义函数时，函数也可以没有自变量，但是函数名后面的圆括号是必须有的。
+
+5、因为Python语言中的函数可以通过星号表达式语法来支持可变参数。所谓可变参数指的是在调用函数时，可以向函数传入0个或任意多个参数。
+
+6、Python中每个文件就代表了一个模块（module），我们在不同的模块中可以有同名的函数，在使用函数的时候我们通过`import`关键字导入指定的模块再使用**完全限定名**的调用方式就可以区分到底要使用的是哪个模块中的`foo`函数。如果我们如果从两个不同的模块中导入了同名的函数，后导入的函数会覆盖掉先前的导入。
