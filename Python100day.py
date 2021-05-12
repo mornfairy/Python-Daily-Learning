@@ -2425,4 +2425,193 @@
 #         code += ALL_CHARS[index]
 #     return code
 
+# # 例子1：定义一个类描述数字时钟
+#
+# import time
+#
+#
+# # 定义数字时钟类
+# class Clock(object):
+#     """数字时钟"""
+#
+#     def __init__(self, hour=0, minute=0, second=0):
+#         """初始化方法
+#         :param hour: 时
+#         :param minute: 分
+#         :param second: 秒
+#         """
+#         self.hour = hour
+#         self.min = minute
+#         self.sec = second
+#
+#     def run(self):
+#         """走字"""
+#         self.sec += 1
+#         if self.sec == 60:
+#             self.sec = 0
+#             self.min += 1
+#             if self.min == 60:
+#                 self.min = 0
+#                 self.hour += 1
+#                 if self.hour == 24:
+#                     self.hour = 0
+#
+#     def show(self):
+#         """显示时间"""
+#         return f'{self.hour:0>2d}:{self.min:0>2d}:{self.sec:0>2d}'
+#
+#
+# # 创建时钟对象
+# clock = Clock(23, 59, 58)
+# while True:
+#     # 给时钟对象发消息读取时间
+#     print(clock.show())
+#     # 休眠1秒钟
+#     time.sleep(1)
+#     # 给时钟对象发消息使其走字
+#     clock.run()
+
+
+# python基础练习100题
+
+# # 题目：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？
+#
+# for i in range(1,5):
+#     for j in range(1,5):
+#         for k in range(1,5):
+#             if(i != j) and (j != k) and (k != i):
+#                 print(i, j, k)
+
+
+# python编程：从入门到实践前11章习题
+
+# # 2-3
+#
+# name = input('请输入名字：')
+# print("Hello %s,would you like to learn some Python today?" % name)
+
+# # 2-4
+#
+# name = input('请输入名字: ')
+# print(name.upper())
+# print(name.lower())
+# print(name.title())
+
     
+# # 2-5
+#
+# name = input('请输入名字： ')
+# word = input('请输入名言： ')
+# print('%s once said, "%s" ' % (name, word))
+    
+# # 2-6
+# famous_person = 'Albert Einstein'
+# message = 'A person who never made a mistake never tried anything new.'
+# print(famous_person + 'once said,' + '"' + message + '"')
+    
+    
+# # 2-7
+#
+# name = input('请输入名字：')
+# print('\t' + name.lstrip() + '\n')
+# print('\t' + name.rstrip() + '\n')
+# print('\t' + name.strip() + '\n')
+    
+# # 2-8
+#
+# print(2 + 6)
+# print(2 * 4)
+# print(10 - 2)
+# print(int(16 / 2))
+    
+    
+# # 3-1
+#
+# names = ['刘元基', '樊文超', '师少勇', '朱迪', '李孟涞', '逯纪元']
+# print(names[0])
+# print(names[1])
+# print(names[2])
+# print(names[3])
+
+# # 3-2
+# names = ['刘元基', '樊文超', '师少勇', '朱迪', '李孟涞', '逯纪元']
+# print(names[0] + '你好')
+# print(names[1] + '你好')
+# print(names[2] + '你好')
+# print(names[3] + '你好')
+
+
+# # 3-4 3-5 3-6
+#
+# guest_names = ['Kobe', 'Grandpa', 'wdp']
+# # for i in guest_names:
+# #     print(i + '诚挚邀请您参加今晚的宴会')
+# print(guest_names[0] + '不能赴宴')
+# guest_names[0] = 'sss'
+# # for i in guest_names:
+# #     print(i + '诚挚邀请您参加今晚的宴会')
+#
+# print('发现了一个更大的餐桌')
+# guest_names.insert(0, '秦始皇')
+# guest_names.insert(2, 'ddd')
+# guest_names.append('ads')
+# print(guest_names)
+# # for i in guest_names:
+# #     print(i + '诚挚邀请您参加今晚的宴会')
+#
+# print('只能邀请两位嘉宾')
+# while len(guest_names) > 2:
+#     print("Sorry "+ guest_names.pop() +" I can't invite you !")
+# print(guest_names)
+#
+# del guest_names[1]
+# print(guest_names)
+# del guest_names[0]
+# print(guest_names)
+
+# # 3-8
+#
+# places = ['上海', '纽约', '苏州', '武汉', '威海']
+# print(places)
+# print(sorted(places))
+# print(places)
+# places.reverse()
+# print(places)
+# print(places)
+# places.reverse()
+# print(places)
+# places.sort()
+# print(places)
+
+
+# # 4-1
+#
+# pizza = ['mushroom pizza', 'beckon pizza', 'suage pizza']
+# for i in pizza:
+#     print('I love ' + i)
+# print('I really love bacon pizza!')
+
+
+# # 4-3
+# for i in range(0, 21):
+#     print(i)
+
+# # 4-5
+# list = []
+# for i in range(1,1000001):
+#     list.append(i)
+# print(min(list))
+# print(max(list))
+# print(sum(list))
+
+
+
+
+
+
+
+
+
+
+
+
