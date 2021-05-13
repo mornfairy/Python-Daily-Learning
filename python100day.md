@@ -916,3 +916,39 @@ $$2**2**3$$得到的结果为256
 
 8、python关系运算符，逻辑运算符等等
 
+9、python中的enumerate()函数：enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。`enumerate()`是用来遍历一个可迭代容器中的元素，同时通过一个计数器变量记录当前元素所对应的索引值。
+
+具体用法：enumerate(sequence, [start=0])
+
+- sequence -- 一个序列、迭代器或其他支持迭代对象。
+- start -- 下标起始位置。
+
+10、下面以常见的序列，列表、元组、字符串为例简单说明enumerate()的使用方法。
+
+- 列表
+
+> s = [2,5,8,3,6,9] 
+>
+> for index, value in enumerate(s):    
+>
+> ​	  print index, value
+>
+> 结果：0 2     1 5     2 8     3 3     4 6     5 9
+
+- 元组
+
+> s = (2,5,8,3,6,9)
+> for index, value in enumerate(s):
+>     print index, value
+>
+> 0 2     1 5     2 8     3 3     4 6     5 9
+
+- 字符串
+
+> s = 'test' 
+>
+> for index, value in enumerate(s):    
+>
+> ​	 print index, value
+>
+> 0 t     1 e     2 s     3 t
