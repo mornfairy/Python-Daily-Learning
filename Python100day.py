@@ -2288,48 +2288,48 @@
 
 
 
-#  使用python实现SROCC，PLCC，KROCC的计算
-
-import pandas as pd
-import numpy as np
-
-#输入原始数据
-
-# # 从txt文件中读入数据
-
-test1 = pd.read_table("data.txt")
-a = test1["ScoreA"]
-#print(a)
-test2 = pd.read_table("data.txt")
-b = test2["ScoreB"]
-#print(b)
-
-
-# a = pd.Series([43.5014, 60.2509, 67.3574, 61.2848, 42.9953, 46.6351, 45.4776,
-#                 43.0422, 38.5426, 29.0167, 69.2392, 65.7653, 55.0551, 54.7645])
-# b = pd.Series([0.7353, 0.7269, 0.7287, 0.7487, 0.7668, 0.8523, 0.8414, 0.8279,
-#                0.7145, 0.8279, 0.7240, 0.7223, 0.7211, 0.7198])
-
-# 计算SROCC
-
-SROCC = a.corr(b, method = 'spearman')
-print('SROCC = %.6f' %SROCC)
-
-# 计算KROCC
-KROCC = a.corr(b, method = 'kendall')
-print('KROCC = %.6f' %KROCC)
-
-# 计算PLCC
-PLCC = a.corr(b, method = 'pearson')
-print('PLCC = %.6f' %PLCC)
-
-# 计算均方根误差RMSE
-
-def rmse(predictions, targets):
-    return np.sqrt(((predictions - targets) ** 2).mean())
-
-rmse_val = rmse(np.array(a), np.array(b))
-print('RMSE = %.6f' %rmse_val)
+# #  使用python实现SROCC，PLCC，KROCC的计算
+#
+# import pandas as pd
+# import numpy as np
+#
+# #输入原始数据
+#
+# # # 从txt文件中读入数据
+#
+# test1 = pd.read_table("data.txt")
+# a = test1["ScoreA"]
+# #print(a)
+# test2 = pd.read_table("data.txt")
+# b = test2["ScoreC"]
+# #print(b)
+#
+#
+# # a = pd.Series([43.5014, 60.2509, 67.3574, 61.2848, 42.9953, 46.6351, 45.4776,
+# #                 43.0422, 38.5426, 29.0167, 69.2392, 65.7653, 55.0551, 54.7645])
+# # b = pd.Series([0.7353, 0.7269, 0.7287, 0.7487, 0.7668, 0.8523, 0.8414, 0.8279,
+# #                0.7145, 0.8279, 0.7240, 0.7223, 0.7211, 0.7198])
+#
+# # 计算SROCC
+#
+# SROCC = a.corr(b, method = 'spearman')
+# print('SROCC = %.6f' %SROCC)
+#
+# # 计算KROCC
+# KROCC = a.corr(b, method = 'kendall')
+# print('KROCC = %.6f' %KROCC)
+#
+# # 计算PLCC
+# PLCC = a.corr(b, method = 'pearson')
+# print('PLCC = %.6f' %PLCC)
+#
+# # 计算均方根误差RMSE
+#
+# def rmse(predictions, targets):
+#     return np.sqrt(((predictions - targets) ** 2).mean())
+#
+# rmse_val = rmse(np.array(a), np.array(b))
+# print('RMSE = %.6f' %rmse_val)
 
 
 # # class A(object):
@@ -2606,9 +2606,190 @@ print('RMSE = %.6f' %rmse_val)
 
 
 
+# # 实例2: 工资结算系统
+#
+# from abc import ABCMeta, abstractmethod
+#
+# class Employee(metaclass = ABCMeta):
+#     """员工"""
+#
+#     def __init__(self, name):
+#         self.name = name
+#
+#     @abstractmethod
+#     def get_salary(self):
+#         """结算月薪"""
+#         pass
+#
+# class Manager(Employee):
+#     """部门经理"""
+#
+#     def get_salary(self):
+#         return 15000.0
+#
+# class Programmer(Employee):
+#     """程序员"""
+#
+#     def __init__(self, name, working_hour = 0):
+#         super().__init__(name)
+#         self.working_hour = working_hour
+#
+#     def get_salary(self):
+#         return 200 * self.working_hour
+#
+# class Salesman(Employee):
+#     """销售员"""
+#
+#     def __init__(self, name, sales = 0):
+#         super().__init__(name)
+#         self.sales = sales
+#
+#     def get_salary(self):
+#         return 1800 + self.sales * 0.05
+#
+# emps = [
+#     Manager('刘备'), Programmer('诸葛亮'), Manager('曹操'),
+#     Programmer('荀彧'), Salesman('吕布'), Programmer('张辽'),
+# ]
+# for emp in emps:
+#     if isinstance(emp, Programmer):
+#         emp.working_hour = int(input(f'请输入{emp.name}本月工作时间: '))
+#     elif isinstance(emp, Salesman):
+#         emp.sales = float(input(f'请输入{emp.name}本月销售额: '))
+#     print(f'{emp.name}本月工资为: ￥{emp.get_salary():.2f}元')
 
 
+#  手撸se_resnet代码
 
+import torch.nn as nn
+from torch.hub import load_state_dict_from_url
+from torchvision.models import ResNet
+from senet.se_module import SELayer
+
+def conv3x3(in_planes, out_planes, stride = 1):
+    return nn.Conv2d(in_planes, out_planes, kernel_size = 3, stride = stride, padding = 1, bias = False)
+
+class SEBasicBlock(nn.Module):
+    expension = 1
+
+    def __init__(self, inplanes, planes, stride=1, downsample=None, groups=1,
+                 base_width = 64, dilation = 1, norm_layer = None,
+                 *, reduction = 16):
+        super(SEBasicBlock, self).__init__()
+        self.conv1 = conv3x3(inplanes, planes, stride)
+        self.bn1 = nn.BatchNorm2d(planes)
+        self.relu = nn.ReLU(inplace = True)
+        self.conv2 = conv3x3(planes, planes, 1)
+        self.bn2 = nn.BatchNorm2d(planes)
+        self.se = SELayer(planes, reduction)
+        self.downsample = downsample
+        self.stride = stride
+
+    def forward(self, x):
+        residual = x
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.se(out)
+
+        if self.downsample is not None:
+            residual = self.downsample(x)
+
+        out += residual
+        out = self.relu(out)
+
+        return out
+
+class SEBottleneck(nn.Module):
+    expansion = 4
+
+    def __init__(self, inplanes, planes, stride=1,downsample=None, groups=1,
+                 base_with = 64, dilation = 1,norm_layer = None, *, reduction = 16):
+        super(SEBottleneck, self).__init__()
+        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size = 1, bias = False)
+        self.bn1 = nn.BatchNorm2d(planes)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride,
+                               padding = 1, bias=False)
+        self.bn2 = nn.BatchNorm2d(planes)
+        self.conv3 = nn.Conv2d(planes, planes * 4, kernel_size = 1, bias = False)
+        self.bn3 = nn.BatchNorm2d(planes * 4)
+        self.relu = nn.ReLU(inplace = True)
+        self.se = SELayer(planes * 4,reduction)
+        self.downsample = downsample
+        self.stride = stride
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv1(out)
+        out = self.bn2(out)
+        out = self.relu(out)
+
+        out = self.conv3(out)
+        out = self.bn3(out)
+        out = self.se(out)
+
+        if self.downsample is not None:
+            residual = self.downsample(x)
+
+        out += residual
+        out = self.relu(out)
+
+        return out
+    def se_resnet18(num_class=1_000):
+        """Constructs a ResNet-18 model.
+           Args:
+               pretrained (bool): If True, returns a model pre-trained on ImageNet
+        """
+        model = ResNet(SEBasicBlock, [2, 2, 2, 2], num_classes = num_classes)
+        model.avgpool = nn.AdaptiveAvgPool2d(1)
+        return model
+
+    def se_resnet34(num_classes=1_000):
+        """Constructs a ResNet-34 model.
+            Args:
+                pretrained (bool): If True, returns a model pre-trained on ImageNet
+        """
+        model = ResNet(SEBasicBlock, [3, 4, 6, 3], num_classes)
+        model.avgpool = nn.AdaptiveAvgPool2d(1)
+        return model
+
+    def se_resnet50(num_classes=1_000, pretrained=False):
+        """Constructs a ResNet-50 model.
+        Args:
+            pretrained (bool): If True, returns a model pre-trained on ImageNet
+        """
+        model = ResNet(SEBottleneck, [3, 4, 6, 3], num_classes=num_classes)
+        model.avgpool = nn.AdaptiveAvgPool2d(1)
+        if pretrained:
+            model.load_state_dict(load_state_dict_from_url(
+                "https://github.com/moskomule/senet.pytorch/releases/download/archive/seresnet50-60a8950a85b2b.pkl"))
+        return model
+
+    def se_resnet101(num_classes=1_000):
+        """Constructs a ResNet-101 model.
+        Args:
+            pretrained (bool): If True, returns a model pre-trained on ImageNet
+        """
+        model = ResNet(SEBottleneck, [3, 4, 23, 3], num_classes=num_classes)
+        model.avgpool = nn.AdaptiveAvgPool2d(1)
+        return model
+
+    def se_resnet152(num_classes=1_000):
+        """Constructs a ResNet-152 model.
+        Args:
+            pretrained (bool): If True, returns a model pre-trained on ImageNet
+        """
+        model = ResNet(SEBottleneck, [3, 8, 36, 3], num_classes=num_classes)
+        model.avgpool = nn.AdaptiveAvgPool2d(1)
+        return model
 
 
 
